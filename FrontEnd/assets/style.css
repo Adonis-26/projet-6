@@ -125,6 +125,38 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.div-container{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	margin: 30px;
+
+}
+
+.div-container > *{ /*pour chaque div du filtre je veux un:*/
+	padding: 10px ;
+	border: 2px solid #1D6154;
+	border-radius: 25px;
+	margin: 5px;
+	font-family: 'Syne';
+    font-weight: 700;
+    font-size: 16px;
+	color: #1D6154;
+	cursor: pointer;
+
+}
+.div-container > *:hover {
+	background-color: #1D6154;
+	color: white;
+}
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
 .gallery {
 	width: 100%;
 	display: grid;

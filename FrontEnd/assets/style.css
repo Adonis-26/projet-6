@@ -248,6 +248,16 @@ margin: auto;
 	text-decoration:underline;
 }
 
+.error{
+	background-color: red;
+	color: white;
+	display: flex;
+	justify-content: center;
+	font-family: 'Syne';
+	height: 30px;
+	align-items: center;
+}
+
 input[type="submit"]{
 	font-family: 'Syne';
 	font-weight: 700;

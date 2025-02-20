@@ -51,6 +51,9 @@ async function createFilterButtons() {
     for (let i = 0; i < json.length; i++) { 
       createFilterButton(json[i]); 
     }
+    const  trashIcon = document.querySelectorAll(".fa-trash-can");
+    trashIcon.forEach((e) => 
+      e.addEventListener('click', (event) => deleteWorks(event))); 
   } catch (error) {
     console.error(error.message); 
   }
@@ -101,7 +104,6 @@ modal.style.visibility = "hidden"
 const openModal = document.querySelector(".js-modal");
 openModal.addEventListener("click", () => {
   modal.style.visibility = "visible"
-  addEventListenerToAddPhotoButton();
 });
 
 //===========fonction fermer la modale========================
@@ -138,5 +140,16 @@ async function deleteWorks(event) {
       Authorization: "Bearer " + token,
     },
   });
+  if (response.ok) {
+    document.querySelector(".modal-wrapper").innerHTML = `
+			<div class="fermer"><i></i> <i class="fa-solid fa-xmark"></i></div>
+			<p title="titlemodal" class="gallery-photo"> Galerie photo</p>
+			<div class="gallery-modal"></div>
+			<div class="addPhotoForm "></div>
+			<hr/>
+			<input class="addPhoto" type="submit" value="Ajouter une photo">
+		</div>`
+  getWorks();
   addEventListenercloseModal()
+}
 }

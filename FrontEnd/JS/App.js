@@ -93,7 +93,7 @@ function checkAndSwitchToConnectedMode() {
 };
 checkAndSwitchToConnectedMode();
 
-//=====================================================================
+//=======================Modale=======================================
 const modal = document.querySelector('.modal')
 modal.style.visibility = "hidden"
 const openModal = document.querySelector(".js-modal");
@@ -102,3 +102,12 @@ openModal.addEventListener("click", () => {
   addEventListenerToAddPhotoButton();
 });
 
+//===========fonction fermer la modale========================
+
+function addEventListenercloseModal() {
+  const closeModal = document.querySelector(".fa-xmark");
+  closeModal.addEventListener("click", () => {
+    modal.style.visibility = "hidden"
+  });
+}
+addEventListenercloseModal();

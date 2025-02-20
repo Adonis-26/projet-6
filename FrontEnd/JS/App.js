@@ -13,11 +13,13 @@ async function getWorks(filter) {
       const filtrer = json.filter((data) => data.categoryId === filter);
       for (let i = 0; i < filtrer.length; i++) { 
         showFigure(filtrer[i]);
+        showFigureModal(filter[i]);
       }
     }
     else {
       for (let i = 0; i < json.length; i++) { 
         showFigure(json[i]);
+        showFigureModal(json[i]);
       }
     }
     } catch (error) {
@@ -111,3 +113,15 @@ function addEventListenercloseModal() {
   });
 }
 addEventListenercloseModal();
+
+//=========afficher les figures modal==========================
+
+function showFigureModal(data) {
+  const figure = document.createElement("figure"); 
+  figure.innerHTML = `<div class="image-container">
+<img src="${data.imageUrl}" alt="${data.title}">
+<i id=${data.id} class="fa-solid fa-trash-can delete-icon" style="color: #f7f9fc;" title="Supprimer"></i>
+</div>`;
+
+  document.querySelector(".gallery-modal").append(figure);
+}

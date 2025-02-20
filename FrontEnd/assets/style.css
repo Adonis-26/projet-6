@@ -356,15 +356,16 @@ footer nav ul {
 }
 
 .gallery-modal {
-	width: 88%;
+	width: 77%;
 	display: grid;
-	grid-template-columns: 0.1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	justify-content: center;
 	margin-left: 60px;
 	margin-right: 60px;
 }
 .gallery-modal img {
-	width: 60%;
+	width: 90%;
+	margin-bottom: 5px;
 }
 
 hr{

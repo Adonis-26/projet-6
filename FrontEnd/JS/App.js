@@ -22,6 +22,9 @@ async function getWorks(filter) {
         showFigureModal(json[i]);
       }
     }
+    const  trashIcon = document.querySelectorAll(".fa-trash-can");
+    trashIcon.forEach((e) => 
+      e.addEventListener('click', (event) => deleteWorks(event))); 
     } catch (error) {
       console.error(error.message);
     }
@@ -51,9 +54,6 @@ async function createFilterButtons() {
     for (let i = 0; i < json.length; i++) { 
       createFilterButton(json[i]); 
     }
-    const  trashIcon = document.querySelectorAll(".fa-trash-can");
-    trashIcon.forEach((e) => 
-      e.addEventListener('click', (event) => deleteWorks(event))); 
   } catch (error) {
     console.error(error.message); 
   }
@@ -207,6 +207,7 @@ const showAddPhotoModal = function () {
     addEventListenerToAddPhotoButton(); 
     addEventListenercloseModal()
   });
+  
   document.getElementById("plusPhoto").addEventListener("change", function (event) { 
     const file = event.target.files[0]; 
 

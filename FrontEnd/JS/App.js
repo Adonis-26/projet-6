@@ -12,7 +12,7 @@ async function getWorks(filter) {
     if (filter) { 
       const filtrer = json.filter((data) => data.categoryId === filter);
       for (let i = 0; i < filtrer.length; i++) { 
-        showFigure(filtrer[i]); 
+        showFigure(filtrer[i]);
       }
     }
     else {
@@ -87,9 +87,18 @@ function checkAndSwitchToConnectedMode() {
     logOut.style.display = "none";
     aLink.style.display = "none";
   }
-
   logOut.addEventListener("click", e => {
     sessionStorage.clear();
   })
 };
 checkAndSwitchToConnectedMode();
+
+//=====================================================================
+const modal = document.querySelector('.modal')
+modal.style.visibility = "hidden"
+const openModal = document.querySelector(".js-modal");
+openModal.addEventListener("click", () => {
+  modal.style.visibility = "visible"
+  addEventListenerToAddPhotoButton();
+});
+

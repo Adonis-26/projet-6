@@ -337,6 +337,15 @@ footer nav ul {
 	justify-content: space-between;
 	width: 100%;	
 }
+.fa-xmark{
+	justify-content:end;
+	cursor: pointer;
+	font-weight: 900;
+	color: #050506;
+	font-size: 20px;
+	margin-right: 20px;
+}
+
 .gallery-photo{
 	font-family: Work Sans;
 	font-size: 26px;
@@ -344,4 +353,27 @@ footer nav ul {
 	line-height: 30.5px;
 	text-align: center;
 	margin-bottom: 30px;
+}
+
+.gallery-modal {
+	width: 88%;
+	display: grid;
+	grid-template-columns: 0.1fr 1fr 1fr 1fr 1fr;
+	justify-content: center;
+	margin-left: 60px;
+	margin-right: 60px;
+}
+.gallery-modal img {
+	width: 60%;
+}
+
+hr{
+	margin: 30px 60px 30px;
+}
+.modal-wrapper input{
+	display: flex;
+	border: none;
+	height: 40px;
+	width: 230px;
+	margin-top: 0;
 }

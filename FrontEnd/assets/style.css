@@ -275,3 +275,17 @@ footer nav ul {
 	margin: 2em
 }
 
+.edit{
+	display: flex;
+	justify-content: center;
+	color: white;
+	background-color: black;
+	height: 50px;
+	align-items: center;
+	font-family: 'Syne';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+}
+

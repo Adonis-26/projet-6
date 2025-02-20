@@ -104,6 +104,7 @@ modal.style.visibility = "hidden"
 const openModal = document.querySelector(".js-modal");
 openModal.addEventListener("click", () => {
   modal.style.visibility = "visible"
+  addEventListenerToAddPhotoButton();
 });
 
 //===========fonction fermer la modale========================
@@ -150,6 +151,53 @@ async function deleteWorks(event) {
 			<input class="addPhoto" type="submit" value="Ajouter une photo">
 		</div>`
   getWorks();
+  addEventListenerToAddPhotoButton()
   addEventListenercloseModal()
 }
+}
+
+//==========afficher & ajouter une photo dans la modale=====================
+
+const showAddPhotoModal = function () {
+  // Contenu de la modale
+  document.querySelector(".modal-wrapper").innerHTML = `
+    <div class="fermer">
+      <i class="fa-solid fa-arrow-left"></i>
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <p title="titlemodal" class="gallery-photo">Ajout photo</p>
+    <div class="center">
+      <div class="blue">
+        <div id="preview-container"></div>
+        <i class="fa-regular fa-image"></i>
+        <label for="plusPhoto" class="formFile">+ Ajouter photo</label>
+        <input id="plusPhoto" type="file" accept="image/jpg, image/png">
+        <p class="format">jpg, png : 4mo max</p>
+      </div>
+      <div class="addPhotoForm">
+        <form class="valider" action="#" method="post">
+          <label for="title">Titre</label>
+          <input type="text" name="title" id="title" />
+          <label for="category">Catégorie</label>
+          <select name="category" id="category">
+            <option value="">Sélectionnez une catégorie</option>
+            <option value="1">Objets</option>
+            <option value="2">Appartements</option>
+            <option value="3">Hôtels & restaurants</option>
+          </select>
+          <hr/>
+          <input type="submit" value="Valider" id="valider">
+        </form>
+      </div>
+    </div>
+  `;
+  
+}
+//===========la fonction ajoute un eventlistener à un bouton======================
+
+function addEventListenerToAddPhotoButton() {
+  const addPhotoButton = document.querySelector(".addPhoto"); 
+  if (addPhotoButton) { 
+    addPhotoButton.addEventListener('click', showAddPhotoModal); 
+  }
 }

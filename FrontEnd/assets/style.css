@@ -404,6 +404,25 @@ hr{
     text-align: center; 
     margin-top: 10px; 
 }
+.addPhotoForm > * {
+	text-align: center;
+
+}
+
+.addPhotoForm form {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.addPhotoForm #title {
+	width: 100%;
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
 
 .addPhotoForm #category {
 	width: 100%;
@@ -413,10 +432,27 @@ hr{
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-.addPhotoForm hr{
-	margin: 30px 0px 30px;
+.addPhotoForm label {
+	margin: 2em 0em 0.5em;
 }
 
+
+.addPhotoForm textarea {
+	border: none;
+	box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.09);
+}
+
+.addPhotoForm a{
+	text-align: center;
+	color:#3D3D3D;
+	font-family: 'Work Sans';
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.addPhotoForm hr{
+	margin: 30px 0px 20px;
+}
 .addphotoPlus input{
 	margin-top: 0px;
 }
@@ -437,8 +473,17 @@ hr{
 	height: 169px;
 }
 
-.blue input {
+.blue .formFile {
 	margin: 8px;
+	background: #cbd6dc;
+	width: 170px;
+	height: 36px;
+	border-radius: 20px;
+	color: #306685;
+	font-family: 'Work Sans';
+}
+.blue input {
+	display: none;
 }
 .fa-image{
 	margin-top: 30px;
@@ -463,6 +508,25 @@ hr{
   text-align: center;
   transition: background-color 0.3s ease;
 }
+
+#title{
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16.42px;
+	text-align: left;
+	color: #444444;
+}
+
+#category{
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16.42px;
+	text-align: left;
+	color: #444444;
+}
+
 
 .preview-container{
 	display: flex;

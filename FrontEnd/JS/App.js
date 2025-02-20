@@ -207,7 +207,33 @@ const showAddPhotoModal = function () {
     addEventListenerToAddPhotoButton(); 
     addEventListenercloseModal()
   });
-}
+  document.getElementById("plusPhoto").addEventListener("change", function (event) { 
+    const file = event.target.files[0]; 
+
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png') && file.size <= 4 * 1024 * 1024) { 
+      const reader = new FileReader(); 
+      reader.onload = function (e) { 
+        const previewContainer = document.getElementById("preview-container");
+        const faImage = document.querySelector(".fa-image");
+        const buttonAddPhotoPlus = document.querySelector(".formFile");
+        const formatImage = document.querySelector(".format");
+        faImage.style.display = "none"; 
+        buttonAddPhotoPlus.style.display = "none"; 
+        formatImage.style.display = "none"; 
+        previewContainer.innerHTML = '';
+        const img = document.createElement("img"); 
+        img.src = e.target.result;
+        img.alt = "uploaded photo"; 
+        img.style.maxWidth = "126px"; 
+        previewContainer.appendChild(img); 
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+  addEventListenercloseModal(); 
+};
+
 //===========la fonction ajoute un eventlistener à un bouton======================
 
 function addEventListenerToAddPhotoButton() {

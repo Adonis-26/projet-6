@@ -243,3 +243,20 @@ function addEventListenerToAddPhotoButton() {
     addPhotoButton.addEventListener('click', showAddPhotoModal); 
   }
 }
+
+//==========cette fonction est appelée lorsque le formulaire est soumis====================
+
+async function addEventListenerButtonValider(event) {
+  event.preventDefault();
+  
+  const title = document.getElementById("title").value;
+  const category = document.getElementById("category").value;
+  const fileInput = document.getElementById("plusPhoto");
+  const file = fileInput.files[0]; 
+
+    
+    const formData = new FormData();// Création d'un objet FormData
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("image", file);
+}

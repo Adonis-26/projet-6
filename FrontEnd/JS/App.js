@@ -125,3 +125,18 @@ function showFigureModal(data) {
 
   document.querySelector(".gallery-modal").append(figure);
 }
+
+//==========fonction supprimer les éléments=====================
+
+async function deleteWorks(event) {
+  const token = sessionStorage.authToken; 
+  const id = event.srcElement.id;
+  const deleteApi = "http://localhost:5678/api/works/";
+  let response = await fetch(deleteApi + id, { 
+    method: "DELETE",
+    headers: { 
+      Authorization: "Bearer " + token,
+    },
+  });
+  addEventListenercloseModal()
+}

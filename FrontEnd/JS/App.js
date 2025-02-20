@@ -69,20 +69,25 @@ document.querySelector(".all-categories").addEventListener("click", () => getWor
 //======== vérifier si user est connecté =======================
 
 function checkAndSwitchToConnectedMode() {
+
   const logOut = document.getElementById("logout");
   if (sessionStorage.authToken) { 
     const editBanner = document.createElement('div');
-    editBanner.className = "edit";
     editBanner.innerHTML = `<p><i class="fa-regular fa-pen-to-square"></i> Mode édition</p>`;
+
     document.body.prepend(editBanner);
+    const hiddenFilter = document.querySelector(".div-container");
     const logIn = document.getElementById("logIn");
     logIn.style.display = "none";
     logOut.style.visibility = "visible";
+    aLink.style.visibility = "visible";
   } else {
     logIn.style.visibility = "visible";
     logOut.style.display = "none";
   }
+
   logOut.addEventListener("click", e => {
     sessionStorage.clear();
   })
 }
+checkAndSwitchToConnectedMode();

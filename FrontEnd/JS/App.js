@@ -192,6 +192,21 @@ const showAddPhotoModal = function () {
     </div>
   `;
   
+  const backButton = document.querySelector(".fa-arrow-left");
+  backButton.addEventListener("click", () => { 
+    document.querySelector(".modal-wrapper").innerHTML = `
+			<div class="fermer"><i></i> <i class="fa-solid fa-xmark"></i></div>
+			<p title="titlemodal" class="gallery-photo"> Galerie photo</p>
+			<div class="gallery-modal"></div>
+			<div class="addPhotoForm "></div>
+			<hr/>
+			<input class="addPhoto" type="submit" value="Ajouter une photo">
+		</div>
+    `;
+    getWorks();
+    addEventListenerToAddPhotoButton(); 
+    addEventListenercloseModal()
+  });
 }
 //===========la fonction ajoute un eventlistener à un bouton======================
 

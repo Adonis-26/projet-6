@@ -159,7 +159,6 @@ async function deleteWorks(event) {
 //==========afficher & ajouter une photo dans la modale=====================
 
 const showAddPhotoModal = function () {
-  // Contenu de la modale
   document.querySelector(".modal-wrapper").innerHTML = `
     <div class="fermer">
       <i class="fa-solid fa-arrow-left"></i>
@@ -191,6 +190,8 @@ const showAddPhotoModal = function () {
       </div>
     </div>
   `;
+  
+  document.querySelector(".valider").addEventListener("submit", addEventListenerButtonValider);
   
   const backButton = document.querySelector(".fa-arrow-left");
   backButton.addEventListener("click", () => { 
@@ -254,9 +255,24 @@ async function addEventListenerButtonValider(event) {
   const fileInput = document.getElementById("plusPhoto");
   const file = fileInput.files[0]; 
 
-    
-    const formData = new FormData();// Création d'un objet FormData
-    formData.append("title", title);
-    formData.append("category", category);
-    formData.append("image", file);
+  const token = sessionStorage.getItem("authToken");
+  const formData = new FormData();
+  formData.append("title", title);
+  formData.append("category", category);
+  formData.append("image", file);
+
+  const response = await fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Accept": "application/json",
+    },
+    body: formData,
+  });
+
+  if (response.ok) {
+    const newWork = await response.json();
+    showFigure(newWork);
+    document.querySelector(".modal").style.display = "none";
+  }
 }

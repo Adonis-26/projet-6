@@ -192,7 +192,7 @@ const showAddPhotoModal = function () {
   `;
   
   document.querySelector(".valider").addEventListener("submit", addEventListenerButtonValider);
-  
+
   const backButton = document.querySelector(".fa-arrow-left");
   backButton.addEventListener("click", () => { 
     document.querySelector(".modal-wrapper").innerHTML = `
@@ -254,6 +254,16 @@ async function addEventListenerButtonValider(event) {
   const category = document.getElementById("category").value;
   const fileInput = document.getElementById("plusPhoto");
   const file = fileInput.files[0]; 
+
+  if (!title || !category || !file) {
+    if (!document.querySelector(".error")) { 
+      const errorMessage = document.createElement("div");
+      errorMessage.className = "error";
+      errorMessage.innerHTML = "Ajoutez une photo et remplissez les champs";
+      document.querySelector("form").prepend(errorMessage);
+    }
+    return; 
+  }
 
   const token = sessionStorage.getItem("authToken");
   const formData = new FormData();

@@ -8,12 +8,12 @@ async function getWorks(filter) {
     if (!response.ok) { 
       throw new Error(`Reponse status: ${response.status}`); 
     }
-    const json = await response.json(); 
+    const json = await response.json();
     if (filter) { 
       const filtrer = json.filter((data) => data.categoryId === filter);
       for (let i = 0; i < filtrer.length; i++) { 
         showFigure(filtrer[i]);
-        showFigureModal(filter[i]);
+        showFigureModal(filtrer[i]);
       }
     }
     else {
@@ -22,14 +22,14 @@ async function getWorks(filter) {
         showFigureModal(json[i]);
       }
     }
-    const  trashIcon = document.querySelectorAll(".fa-trash-can");
-    trashIcon.forEach((e) => 
-      e.addEventListener('click', (event) => deleteWorks(event))); 
-    } catch (error) {
-      console.error(error.message);
-    }
+    const trashIcon = document.querySelectorAll(".fa-trash-can");
+    trashIcon.forEach((e) =>
+      e.addEventListener('click', (event) => deleteWorks(event)));
+  } catch (error) {
+    console.error(error.message);
   }
-  getWorks()
+}
+getWorks()
 
 //===================afficher les figure==========================
 
@@ -41,7 +41,7 @@ function showFigure(data) {
   document.querySelector(".gallery").append(figure);
 }
 
-//=============création des boutons categories================
+//=============récupération des catégories depuis l'API================
 
 async function createFilterButtons() { 
   const url = "http://localhost:5678/api/categories"; 
@@ -60,7 +60,7 @@ async function createFilterButtons() {
 }
 createFilterButtons();
 
-//===========creation des boutons qui permettent de filtrer les projets par catégorie==============
+//===========creation du bouton qui permet  de filtrer par catégorie==============
 
 function createFilterButton(data) {
   const div = document.createElement("div");

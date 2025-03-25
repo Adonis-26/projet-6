@@ -73,7 +73,7 @@ document.querySelector(".all-categories").addEventListener("click", () => getWor
 
 //======== vérifier si user est connecté =======================
 
-function checkAndSwitchToConnectedMode() {
+function modeEdition() {
   const aLink = document.querySelector(".js-modal");
   const logOut = document.getElementById("logout");
   if (sessionStorage.authToken) {
@@ -96,7 +96,7 @@ function checkAndSwitchToConnectedMode() {
     sessionStorage.clear();
   })
 };
-checkAndSwitchToConnectedMode();
+modeEdition();
 
 //=======================Modale=======================================
 const modal = document.querySelector('.modal')
